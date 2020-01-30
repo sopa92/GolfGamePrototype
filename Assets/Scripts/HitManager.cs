@@ -11,6 +11,7 @@ public class HitManager : MonoBehaviour
     public float HitForce { get; protected set; }
 
     public float MaxForce;
+    public float MinForce;
 
     public float ForceFillingSpeed;
     int fillDirection = 1;
@@ -25,8 +26,7 @@ public class HitManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MaxForce = 30f;
-        ForceFillingSpeed = 10f;
+        ResetForce();
         FindGolfBall();
         arrow = GameObject.FindObjectOfType<DirectionIndicator>().gameObject;
     }
@@ -51,7 +51,7 @@ public class HitManager : MonoBehaviour
         {
             arrow.SetActive(true);
             DirAngle += Input.GetAxis("Horizontal") * 100f * Time.deltaTime;
-            Debug.Log(HitState);
+            //Debug.Log(HitState);
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 HitState = HitStateEnum.FORCE;
@@ -64,32 +64,56 @@ public class HitManager : MonoBehaviour
         
         if (HitState == HitStateEnum.FORCE)
         {
-            Debug.Log(HitState);
+            //Debug.Log(HitState);
             HitForce += (ForceFillingSpeed * fillDirection) * Time.deltaTime;
             if (HitForce > MaxForce)
             {
                 HitForce = MaxForce;
                 fillDirection = -1;
             }
-            if (HitForce < 0)
+
+            if (MinForce > 0 && HitForce < MinForce)
             {
-                HitForce = 0;
+                HitForce = MinForce;
                 fillDirection = 1;
+            }
+            else
+            {
+                if (HitForce < 0)
+                {
+                    HitForce = 0;
+                    fillDirection = 1;
+                }
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 HitState = HitStateEnum.READYTOHIT;
-                Debug.Log(HitState);
+                //Debug.Log(HitState);
             }
             
         }
     }
 
+    public void IncreaseForce() {
+        MaxForce = 50f;
+        ForceFillingSpeed = 40f;
+        MinForce = 30f;
+    }
+
+    public void ResetForce()
+    {
+        MaxForce = 30f;
+        ForceFillingSpeed = 20f;
+        HitForce = MinForce = 0f;
+    }
+
     void CheckForMoving() {
+        Debug.Log(golfBallRb.velocity);
         if (golfBallRb.IsSleeping()) {
             HitState = HitStateEnum.AIMING;
         }
     }
+
     //FixedUpdate runs on every tick of the physics engine
     void FixedUpdate()
     {
@@ -111,7 +135,7 @@ public class HitManager : MonoBehaviour
         Vector3 forceVec = new Vector3(0, 0, HitForce);
         golfBallRb.AddForce(Quaternion.Euler(0, DirAngle, 0) * forceVec, ForceMode.Impulse);
 
-        HitForce = 0;
+        HitForce = MinForce>0 ? MinForce : 0;
         fillDirection = 1;
         HitState = HitStateEnum.ROLLING;
     }

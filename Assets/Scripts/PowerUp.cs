@@ -15,6 +15,10 @@ public class PowerUp : MonoBehaviour
 
     [SerializeField]
     private AudioClip powerUpSoundClip;
+    PowerUpCountdown countdownManager;
+    HitManager hitManager;
+
+    private float timer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,10 +30,9 @@ public class PowerUp : MonoBehaviour
             {
                 if (_powerUpID == 0)
                 {
-                    //Increase force limit
-                    HitManager hitManager = GameObject.FindObjectOfType<HitManager>();
-                    hitManager.MaxForce = 50f;
-                    hitManager.ForceFillingSpeed = 40f;
+                    //Increase force limit                    
+                    hitManager.IncreaseForce();
+                    StartCoroutine(SpeedCountDownRoutine());
                 }
                 else if (_powerUpID == 1)
                 {
@@ -43,16 +46,21 @@ public class PowerUp : MonoBehaviour
         }
     }
 
+    IEnumerator SpeedCountDownRoutine()
+    {
+        countdownManager.timeLeft = countdownManager.maxTime = 1500f;
+        yield return new WaitForSeconds(countdownManager.timeLeft);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        hitManager = GameObject.FindObjectOfType<HitManager>();
+        countdownManager = GameObject.FindObjectOfType<PowerUpCountdown>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
