@@ -1,22 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
     Rigidbody rigidBd;
     public Camera camera;
+    public int BonusPointsScore;
+
+    [SerializeField]
+    private Text score;
     // Start is called before the first frame update
     void Start()
     {
         rigidBd = this.GetComponent<Rigidbody>();
         rigidBd.sleepThreshold = 0.8f;
+        score.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveCameraAlongTheBall();
+        if (BonusPointsScore > 0) {
+            //Debug.Log("Score" + BonusPointsScore);
+            score.text = "Bonus Points: " + BonusPointsScore;
+            score.enabled = true;
+        }
     }
 
     public void TransportToTheEnd() {
