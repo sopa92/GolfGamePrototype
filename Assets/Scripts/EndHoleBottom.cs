@@ -22,6 +22,8 @@ public class EndHoleBottom : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             winningMessage.SetActive(true);
+            ParticleSystem lightFlow = GameObject.FindObjectOfType<ParticleSystem>();
+            lightFlow.gameObject.SetActive(false);
         }
     }
 }
