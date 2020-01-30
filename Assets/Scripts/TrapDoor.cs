@@ -14,7 +14,7 @@ public bool itsATrap;
 		rightDoor.isKinematic = true;
 	}
 	
-	void OnTriggerEnter (Collider other)
+	void OnTriggerEnter(Collider other)
 	{
 		 if (other.tag == "Player") {
 			if (itsATrap) {

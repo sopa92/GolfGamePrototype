@@ -28,8 +28,8 @@ public class PowerUp : MonoBehaviour
                 {
                     //Increase force limit
                     HitManager hitManager = GameObject.FindObjectOfType<HitManager>();
-                    hitManager.MaxForce = 200f;
-                    hitManager.ForceFillingSpeed = 20f;
+                    hitManager.MaxForce = 50f;
+                    hitManager.ForceFillingSpeed = 40f;
                 }
                 else if (_powerUpID == 1)
                 {

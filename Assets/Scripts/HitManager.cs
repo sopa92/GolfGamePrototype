@@ -10,9 +10,9 @@ public class HitManager : MonoBehaviour
     public float DirAngle { get; protected set; }
     public float HitForce { get; protected set; }
 
-    public float MaxForce = 100f;
+    public float MaxForce;
 
-    public float ForceFillingSpeed = 10f;
+    public float ForceFillingSpeed;
     int fillDirection = 1;
 
     public enum HitStateEnum {
@@ -25,6 +25,8 @@ public class HitManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MaxForce = 30f;
+        ForceFillingSpeed = 10f;
         FindGolfBall();
         arrow = GameObject.FindObjectOfType<DirectionIndicator>().gameObject;
     }
