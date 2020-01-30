@@ -10,9 +10,9 @@ public class HitManager : MonoBehaviour
     public float DirAngle { get; protected set; }
     public float HitForce { get; protected set; }
 
-    public float MaxForce = 250f;
+    public float MaxForce = 100f;
 
-    float forceFillingSpeed = 10f;
+    public float ForceFillingSpeed = 10f;
     int fillDirection = 1;
 
     public enum HitStateEnum {
@@ -63,7 +63,7 @@ public class HitManager : MonoBehaviour
         if (HitState == HitStateEnum.FORCE)
         {
             Debug.Log(HitState);
-            HitForce += (forceFillingSpeed * fillDirection) * Time.deltaTime;
+            HitForce += (ForceFillingSpeed * fillDirection) * Time.deltaTime;
             if (HitForce > MaxForce)
             {
                 HitForce = MaxForce;
