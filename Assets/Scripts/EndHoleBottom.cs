@@ -23,7 +23,7 @@ public class EndHoleBottom : MonoBehaviour
         {
             winningMessage.SetActive(true);
             other.gameObject.transform.position = this.transform.position;
-            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }
