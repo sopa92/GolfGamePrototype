@@ -108,7 +108,7 @@ public class HitManager : MonoBehaviour
     }
 
     void CheckForMoving() {
-        Debug.Log(golfBallRb.velocity);
+        //Debug.Log(golfBallRb.velocity);
         if (golfBallRb.IsSleeping()) {
             HitState = HitStateEnum.AIMING;
         }

@@ -19,11 +19,11 @@ public class EndHoleBottom : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerB")
         {
             winningMessage.SetActive(true);
-            ParticleSystem lightFlow = GameObject.FindObjectOfType<ParticleSystem>();
-            lightFlow.gameObject.SetActive(false);
+            other.gameObject.transform.position = this.transform.position;
+            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
     }
 }
