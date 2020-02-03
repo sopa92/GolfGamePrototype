@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     Rigidbody rigidBd;
     public Camera mainCamera;
     public int BonusPointsScore;
+    public Vector3 spawnPosition;
 
     [SerializeField]
     private Text score;
@@ -17,6 +18,7 @@ public class Ball : MonoBehaviour
         rigidBd = this.GetComponent<Rigidbody>();
         rigidBd.sleepThreshold = 0.8f;
         score.enabled = false;
+        spawnPosition = transform.position;
     }
 
     // Update is called once per frame

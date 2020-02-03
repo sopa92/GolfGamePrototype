@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 452520499}
   - component: {fileID: 452520498}
   - component: {fileID: 452520497}
+  - component: {fileID: 452520500}
   m_Layer: 0
   m_Name: Pond A bottom
   m_TagString: Untagged
@@ -616,6 +617,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452520495}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &452520500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452520495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec403eec23ac2844495eeeabf744b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509374135
 GameObject:
   m_ObjectHideFlags: 0
@@ -5670,7 +5683,7 @@ PrefabInstance:
     - target: {fileID: 3654514873304629568, guid: 927b389709ca3b44e9b81da4cb0c2740,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3654514873304629568, guid: 927b389709ca3b44e9b81da4cb0c2740,
         type: 3}
@@ -7354,6 +7367,21 @@ PrefabInstance:
       propertyPath: winningMessage
       value: 
       objectReference: {fileID: 2089742801}
+    - target: {fileID: 1263154836967002696, guid: 05da2b4e08f91ac42ad55e9534e04c4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263154836967002696, guid: 05da2b4e08f91ac42ad55e9534e04c4a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263154836967002703, guid: 05da2b4e08f91ac42ad55e9534e04c4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1605229573, guid: 05da2b4e08f91ac42ad55e9534e04c4a, type: 3}
       propertyPath: winningMessage
       value: 
@@ -7469,6 +7497,7 @@ GameObject:
   - component: {fileID: 1700000580}
   - component: {fileID: 1700000579}
   - component: {fileID: 1700000578}
+  - component: {fileID: 1700000581}
   m_Layer: 0
   m_Name: Pond B bottom
   m_TagString: Untagged
@@ -7547,6 +7576,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700000576}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1700000581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700000576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec403eec23ac2844495eeeabf744b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1712780159
 GameObject:
   m_ObjectHideFlags: 0
