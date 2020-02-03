@@ -24,30 +24,34 @@ public class TrapDoor : MonoBehaviour {
                 needsCoOp = true;
             }
         }
-	}
+    }
 
     private void FixedUpdate()
     {
         if (needsCoOp) {
             this.GetComponent<BoxCollider>().enabled = false;
-            //bool doorMustOpen = true;
+            bool doorMustOpen = true;
             foreach (TrapButton button in buttons)
             {
                 if (!button.isActivated) {
                     doorMustOpen = false;
                 }
             }
-            if (doorMustOpen) {
+            if (doorMustOpen)
+            {                
                 leftDoor.useGravity = true;
                 leftDoor.isKinematic = false;
                 rightDoor.useGravity = true;
                 rightDoor.isKinematic = false;
             }
+            
         }
-    }
+    } 
 
-    bool MultipleButtonsExist() {        
-        if (buttons.Length > 1) {
+    bool MultipleButtonsExist()
+    {
+        if (buttons.Length > 1)
+        {
             return true;
         }
         return false;
