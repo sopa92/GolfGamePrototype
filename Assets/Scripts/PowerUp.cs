@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Contains("Player"))
+        if (other.tag == "Player")
         {
             //access the player
             Ball golfBall = other.GetComponent<Ball>();
@@ -54,24 +54,19 @@ public class PowerUp : MonoBehaviour
 
     void SwapPlayersPositions()
     {
-        GameObject playerB = GameObject.FindGameObjectWithTag("PlayerB");
-        if (playerB != null)
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (players.Length > 1)
         {
-            GameObject playerA = GameObject.FindGameObjectWithTag("Player");
-            if (playerA != null)
-            {
-                playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = true;
-                Vector3 tempPos = playerB.transform.position;
-                playerB.transform.position = playerA.transform.position;
-                playerA.transform.position = tempPos;
-                playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = false;
-            }
-            else
-            {
-                Debug.Log("Only one player exists.");
-            }
+            GameObject playerA = players[0];
+            GameObject playerB = players[1];
+            playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = true;
+            Vector3 tempPos = playerB.transform.position;
+            playerB.transform.position = playerA.transform.position;
+            playerA.transform.position = tempPos;
+            playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = false;
         }
-        else {
+        else
+        {
             Debug.Log("Only one player exists.");
         }
     }
