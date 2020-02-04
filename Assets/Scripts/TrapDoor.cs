@@ -38,7 +38,10 @@ public class TrapDoor : MonoBehaviour {
                 }
             }
             if (doorMustOpen)
-            {                
+            {
+                if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
+                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 5f);
+                needsCoOp = false;
                 leftDoor.useGravity = true;
                 leftDoor.isKinematic = false;
                 rightDoor.useGravity = true;
@@ -59,8 +62,8 @@ public class TrapDoor : MonoBehaviour {
 
     bool MultiplePlayersExist()
     {
-        GameObject playerB = GameObject.FindGameObjectWithTag("PlayerB");
-        if (playerB != null)
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (players.Length>1)
         {
             return true;
         }
@@ -69,13 +72,15 @@ public class TrapDoor : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
 	{
-		 if (other.tag.Contains("Player")) {
-			if (itsATrap) {
-			leftDoor.useGravity = true;
-			leftDoor.isKinematic = false;
-			rightDoor.useGravity = true;
-			rightDoor.isKinematic = false;
-			}
-		}
+        if (other.tag == "Player")
+        {
+            if (itsATrap)
+            {
+                leftDoor.useGravity = true;
+                leftDoor.isKinematic = false;
+                rightDoor.useGravity = true;
+                rightDoor.isKinematic = false;
+            }
+        }
 	}
 }

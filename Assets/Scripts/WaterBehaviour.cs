@@ -18,10 +18,13 @@ public class WaterBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag.Contains("Player")) {
+        if (other.gameObject.tag == "Player")
+        {
+            if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 5f);
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             Ball golfBall = other.gameObject.GetComponent<Ball>();
-            other.transform.position = golfBall!=null ? golfBall.spawnPosition : new Vector3(0, 4, -13);
+            other.transform.position = golfBall != null ? golfBall.spawnPosition : new Vector3(0, 4, -13);
 
             other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }

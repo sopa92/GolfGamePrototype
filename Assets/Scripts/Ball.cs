@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     public Camera mainCamera;
     public int BonusPointsScore;
     public Vector3 spawnPosition;
+    public bool isAlive;
 
     [SerializeField]
     private Text score;
@@ -19,6 +20,7 @@ public class Ball : MonoBehaviour
         rigidBd.sleepThreshold = 0.8f;
         score.enabled = false;
         spawnPosition = transform.position;
+        isAlive = true;
     }
 
     // Update is called once per frame

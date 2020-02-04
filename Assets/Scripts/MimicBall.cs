@@ -6,10 +6,11 @@ public class MimicBall : MonoBehaviour
 {
     [SerializeField]
     private GameObject playerA;
+    public bool isAlive;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isAlive = true;
     }
 
     // Update is called once per frame

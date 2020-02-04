@@ -8,7 +8,7 @@ public class DirectionIndicator : MonoBehaviour
     void Start()
     {
         HitManager = GameObject.FindObjectOfType<HitManager>();
-        golfBallTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        golfBallTrans = GameObject.FindGameObjectsWithTag("Player")[0].transform;
     }
 
     HitManager HitManager;
@@ -17,8 +17,7 @@ public class DirectionIndicator : MonoBehaviour
     void Update()
     {
         this.transform.position = golfBallTrans.position;
-        this.transform.rotation = Quaternion.Euler(0, HitManager.DirAngle, 0);
-        
+        this.transform.rotation = Quaternion.Euler(0, HitManager.DirAngle, 0);        
     }
 
 }

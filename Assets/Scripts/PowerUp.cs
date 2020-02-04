@@ -15,10 +15,10 @@ public class PowerUp : MonoBehaviour
     private AudioClip powerUpSoundClip;
     PowerUpCountdown countdownManager;
     HitManager hitManager;
-    
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Contains("Player"))
+        if (other.tag == "Player")
         {
             //access the player
             Ball golfBall = other.GetComponent<Ball>();
@@ -48,30 +48,26 @@ public class PowerUp : MonoBehaviour
 
     IEnumerator SpeedCountDownRoutine()
     {
+        countdownManager.gameObject.SetActive(true);
         countdownManager.timeLeft = countdownManager.maxTime = 1500f;
         yield return new WaitForSeconds(countdownManager.timeLeft);
     }
 
     void SwapPlayersPositions()
     {
-        GameObject playerB = GameObject.FindGameObjectWithTag("PlayerB");
-        if (playerB != null)
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (players.Length > 1)
         {
-            GameObject playerA = GameObject.FindGameObjectWithTag("Player");
-            if (playerA != null)
-            {
-                playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = true;
-                Vector3 tempPos = playerB.transform.position;
-                playerB.transform.position = playerA.transform.position;
-                playerA.transform.position = tempPos;
-                playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = false;
-            }
-            else
-            {
-                Debug.Log("Only one player exists.");
-            }
+            GameObject playerA = players[0];
+            GameObject playerB = players[1];
+            playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = true;
+            Vector3 tempPos = playerB.transform.position;
+            playerB.transform.position = playerA.transform.position;
+            playerA.transform.position = tempPos;
+            playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = false;
         }
-        else {
+        else
+        {
             Debug.Log("Only one player exists.");
         }
     }
