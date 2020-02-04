@@ -11,7 +11,7 @@ public class HitManager : MonoBehaviour
     GameObject arrow;
     public float DirAngle { get; protected set; }
     public float HitForce { get; protected set; }
-
+    
     public float MaxForce;
     public float MinForce;
 
@@ -109,12 +109,12 @@ public class HitManager : MonoBehaviour
         bool allDead = true;
         foreach (GameObject player in players)
         {
-            if (ballScript != null)
+            Ball ballAScript = player.GetComponent<Ball>();
+            if (ballAScript != null)
             {   // is player A
-                if (ballScript.isAlive)
+                if (ballAScript.isAlive)
                 {
                     allDead = false;
-                    return allDead;
                 }
             }
             else
@@ -125,7 +125,6 @@ public class HitManager : MonoBehaviour
                     if (ballBScript.isAlive)
                     {
                         allDead = false;
-                        return allDead;
                     }
                 }
             }
@@ -173,7 +172,6 @@ public class HitManager : MonoBehaviour
 
         Vector3 forceVec = new Vector3(0, 0, HitForce);
         golfBallRb.AddForce(Quaternion.Euler(0, DirAngle, 0) * forceVec, ForceMode.Impulse);
-
         HitForce = MinForce>0 ? MinForce : 0;
         fillDirection = 1;
         HitState = HitStateEnum.ROLLING;

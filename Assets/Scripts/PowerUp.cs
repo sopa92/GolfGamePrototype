@@ -15,7 +15,7 @@ public class PowerUp : MonoBehaviour
     private AudioClip powerUpSoundClip;
     PowerUpCountdown countdownManager;
     HitManager hitManager;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -48,6 +48,7 @@ public class PowerUp : MonoBehaviour
 
     IEnumerator SpeedCountDownRoutine()
     {
+        countdownManager.gameObject.SetActive(true);
         countdownManager.timeLeft = countdownManager.maxTime = 1500f;
         yield return new WaitForSeconds(countdownManager.timeLeft);
     }

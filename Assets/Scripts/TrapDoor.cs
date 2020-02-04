@@ -38,7 +38,10 @@ public class TrapDoor : MonoBehaviour {
                 }
             }
             if (doorMustOpen)
-            {                
+            {
+                if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
+                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 5f);
+                needsCoOp = false;
                 leftDoor.useGravity = true;
                 leftDoor.isKinematic = false;
                 rightDoor.useGravity = true;
