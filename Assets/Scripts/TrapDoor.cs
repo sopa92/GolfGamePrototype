@@ -69,7 +69,7 @@ public class TrapDoor : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
 	{
-		 if (other.tag == "Player") {
+		 if (other.tag.Contains("Player")) {
 			if (itsATrap) {
 			leftDoor.useGravity = true;
 			leftDoor.isKinematic = false;
