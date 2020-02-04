@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -26,17 +27,26 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BonusPointsScore > 0) {
+        if (BonusPointsScore > 0)
+        {
             score.text = "Bonus Points: " + BonusPointsScore;
             score.enabled = true;
         }
+        if (!isAlive)
+        {
+            Invoke("LoadScene", 2);
+        }
     }
 
-    public void TransportToTheEnd() {
+    void LoadScene()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void TransportToTheEnd()
+    {
         GameObject endHole = GameObject.FindObjectOfType<Endhole>().gameObject;
         this.transform.position = new Vector3(endHole.transform.position.x, endHole.transform.position.y + 3, endHole.transform.position.z - 2);
     }
-
-
-
+       
 }
