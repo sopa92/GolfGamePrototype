@@ -19,7 +19,7 @@ public class EndHoleBottom : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerB")
+        if (other.gameObject.tag.Contains("Player"))
         {
             winningMessage.SetActive(true);
             other.gameObject.transform.position = this.transform.position;

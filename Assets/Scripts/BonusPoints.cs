@@ -17,13 +17,13 @@ public class BonusPoints : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") {
+        if (other.tag.Contains("Player")) {
             other.GetComponent<Ball>().BonusPointsScore += 10;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag.Contains("Player"))
         {
             Destroy(this.gameObject);
         }

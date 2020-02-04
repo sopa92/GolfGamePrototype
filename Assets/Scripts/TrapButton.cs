@@ -8,7 +8,8 @@ public class TrapButton : MonoBehaviour
     Animator anim;
     AudioSource audioSrc;
     AudioClip audioClip;
-
+    [SerializeField]
+    GameObject correspondingPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class TrapButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerB")
+        if (other.gameObject == correspondingPlayer)
         {
             anim.SetBool("ballCollides", true);
             isActivated = true;
@@ -37,7 +38,7 @@ public class TrapButton : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject == correspondingPlayer)
         {
             anim.SetBool("ballCollides", false);
         }
