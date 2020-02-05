@@ -30,28 +30,25 @@ public class TrapDoor : MonoBehaviour {
     {
         if (needsCoOp)
         {
-            itsATrap = false;
-            bool doorMustOpen = true;
+            doorMustOpen = true;
+            foreach (TrapButton button in buttons)
             {
-                doorMustOpen = true;
-                foreach (TrapButton button in buttons)
+                if (!button.isActivated)
                 {
-                    if (!button.isActivated)
-                    {
-                        doorMustOpen = false;
-                    }
-                }
-                if (doorMustOpen)
-                {
-                    if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
-                        this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 1f);
-                    needsCoOp = false;
-                    leftDoor.useGravity = true;
-                    leftDoor.isKinematic = false;
-                    rightDoor.useGravity = true;
-                    rightDoor.isKinematic = false;
+                    doorMustOpen = false;
                 }
             }
+            if (doorMustOpen)
+            {
+                if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
+                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 1f);
+                needsCoOp = false;
+                leftDoor.useGravity = true;
+                leftDoor.isKinematic = false;
+                rightDoor.useGravity = true;
+                rightDoor.isKinematic = false;
+            }
+
         }
     }
 
