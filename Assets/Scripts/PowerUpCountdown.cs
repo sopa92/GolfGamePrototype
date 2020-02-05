@@ -23,7 +23,7 @@ public class PowerUpCountdown : MonoBehaviour
         if (timeLeft > 0)
         {
             if(!this.gameObject.GetComponent<AudioSource>().isPlaying)
-                this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 5f);
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 1f);
             countDownMeter.fillAmount = (timeLeft / maxTime);
             timeLeft--;
             if(timeLeft==0)
