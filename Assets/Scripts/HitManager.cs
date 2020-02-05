@@ -9,6 +9,7 @@ public class HitManager : MonoBehaviour
     Rigidbody golfBallRb;
     Ball ballScript;
     GameObject arrow;
+    GameObject golfBall;
     public float DirAngle { get; protected set; }
     public float HitForce { get; protected set; }
     
@@ -32,17 +33,20 @@ public class HitManager : MonoBehaviour
         arrow = GameObject.FindObjectOfType<DirectionIndicator>().gameObject;
     }
 
-    void FindGolfBall() {
-        GameObject golfBall = GameObject.FindGameObjectsWithTag("Player")[0];
+    void FindGolfBall()
+    {
+        ballScript = GameObject.FindObjectOfType<Ball>();
+        golfBall = ballScript.gameObject;
 
         if (golfBall == null) {
             Debug.LogError("Couldn't find the golf ball");
         }
         golfBallRb = golfBall.GetComponent<Rigidbody>();
-        ballScript = golfBall.GetComponent<Ball>();
+        //HitState = HitStateEnum.AIMING;
         if (golfBallRb == null) {
             Debug.LogError("Golf ball has no rigidbody");
         }
+
     }
 
     // Update is called once per frame
@@ -146,7 +150,7 @@ public class HitManager : MonoBehaviour
         HitForce = MinForce = 0f;
     }
 
-    void CheckForMoving() {
+    void CheckForMoving() {        
         if (golfBallRb.IsSleeping() && ballScript.isAlive) {
             HitState = HitStateEnum.AIMING;
         }

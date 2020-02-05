@@ -8,7 +8,7 @@ public class DirectionIndicator : MonoBehaviour
     void Start()
     {
         HitManager = GameObject.FindObjectOfType<HitManager>();
-        golfBallTrans = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        golfBallTrans = GameObject.FindObjectOfType<Ball>().transform;
     }
 
     HitManager HitManager;

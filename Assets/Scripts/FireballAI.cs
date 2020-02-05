@@ -28,10 +28,12 @@ public class FireballAI : MonoBehaviour
             other.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
             other.GetComponent<Rigidbody>().isKinematic = true;
 
-            if(other.GetComponent<Ball>()!=null)
+            if (other.GetComponent<Ball>() != null)
                 other.GetComponent<Ball>().isAlive = false;
             else
+            {
                 other.GetComponent<MimicBall>().isAlive = false;
+            }
         }
     }
 }
