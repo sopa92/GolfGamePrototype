@@ -7985,7 +7985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448817318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.72, y: 2.569, z: 11.694}
+  m_LocalPosition: {x: 3.72, y: 2.569, z: 9.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2109157428}
@@ -9464,7 +9464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _FireBallPrefab: {fileID: 3113500609754272953, guid: 7d7916f8ad2d3cd4bbe3327b1d8b3a97,
     type: 3}
-  zPositionFireball: -3
+  zPositionFireball: 7
   _GrassObstaclePrefab: {fileID: 5394268280630596446, guid: b5be25be7933b0b4e973db95b11f4f20,
     type: 3}
   zPositionGrassObstacle: 1
@@ -11025,7 +11025,7 @@ PrefabInstance:
     - target: {fileID: 5553615545266604264, guid: 2ef7168a800c2d74ca79e7a963bebaa7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.58
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 5553615545266604264, guid: 2ef7168a800c2d74ca79e7a963bebaa7,
         type: 3}
@@ -11035,7 +11035,7 @@ PrefabInstance:
     - target: {fileID: 5553615545266604264, guid: 2ef7168a800c2d74ca79e7a963bebaa7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.5
+      value: -5.42
       objectReference: {fileID: 0}
     - target: {fileID: 5553615545266604264, guid: 2ef7168a800c2d74ca79e7a963bebaa7,
         type: 3}
