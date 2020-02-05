@@ -29,7 +29,6 @@ public class TrapDoor : MonoBehaviour {
     {
         if (needsCoOp)
         {
-            //this.GetComponent<BoxCollider>().enabled = false;
             itsATrap = false;
             bool doorMustOpen = true;
             foreach (TrapButton button in buttons)
@@ -42,7 +41,7 @@ public class TrapDoor : MonoBehaviour {
             if (doorMustOpen)
             {
                 if (!this.gameObject.GetComponent<AudioSource>().isPlaying)
-                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 5f);
+                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.GetComponent<AudioSource>().clip, 1f);
                 needsCoOp = false;
                 leftDoor.useGravity = true;
                 leftDoor.isKinematic = false;
