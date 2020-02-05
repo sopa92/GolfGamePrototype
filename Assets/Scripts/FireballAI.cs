@@ -7,7 +7,7 @@ public class FireballAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,15 +25,14 @@ public class FireballAI : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
-            other.GetComponent<Rigidbody>().isKinematic = true;
+            if (other.GetComponent<Renderer>() != null)
+                other.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
+
+            if (other.GetComponent<Rigidbody>())
+                other.GetComponent<Rigidbody>().isKinematic = true;
 
             if (other.GetComponent<Ball>() != null)
                 other.GetComponent<Ball>().isAlive = false;
-            else
-            {
-                other.GetComponent<MimicBall>().isAlive = false;
-            }
         }
     }
 }

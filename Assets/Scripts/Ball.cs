@@ -13,6 +13,8 @@ public class Ball : MonoBehaviour
     public bool isAlive;
 
     [SerializeField]
+    public bool isMimicBall;
+    [SerializeField]
     private Text score;
     // Start is called before the first frame update
     void Start()
@@ -27,15 +29,54 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BonusPointsScore > 0)
+        if (!isMimicBall)
         {
-            score.text = "Bonus Points: " + BonusPointsScore;
-            score.enabled = true;
+            if (BonusPointsScore > 0)
+            {
+                score.text = "Bonus Points: " + BonusPointsScore;
+                score.enabled = true;
+            }
+            if (!isAlive)
+            {
+                Invoke("LoadScene", 2);
+            }
         }
-        if (!isAlive)
+        else {
+            if (isAlive)
+            {
+                Ball playerA = GetTheOtherBall();
+                this.transform.position = new Vector3(-playerA.transform.position.x, playerA.transform.position.y, -playerA.transform.position.z);
+            }
+            else
+            {
+                var hatch = GameObject.FindObjectOfType<TrapDoor>();
+                if (hatch.doorMustOpen == false)
+                {
+                    hatch.itsATrap = true;
+                    var buttons = GameObject.FindObjectsOfType<TrapButton>();
+                    foreach (var button in buttons)
+                    {
+                        Destroy(button.transform.parent.gameObject);
+                    }
+                }
+            }
+        }
+    }
+
+    private Ball GetTheOtherBall()
+    {
+        var golfballs = GameObject.FindObjectsOfType<Ball>();
+        if (golfballs != null)
         {
-            Invoke("LoadScene", 2);
+            foreach (var golfball in golfballs)
+            {
+                if (golfball.gameObject != this.gameObject)
+                {
+                    return golfball;
+                }
+            }
         }
+        return null;
     }
 
     void LoadScene()

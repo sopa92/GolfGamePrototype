@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class DirectionIndicator : MonoBehaviour
 {
+    HitManager HitManager;
+    Transform golfBallTrans;
     // Start is called before the first frame update
     void Start()
     {
         HitManager = GameObject.FindObjectOfType<HitManager>();
-        golfBallTrans = GameObject.FindObjectOfType<Ball>().transform;
+        Ball[] golfBalls = GameObject.FindObjectsOfType<Ball>();
+        foreach (var golfBall in golfBalls) {
+            if (!golfBall.isMimicBall) {
+                golfBallTrans = golfBall.transform;
+            }
+        }
     }
 
-    HitManager HitManager;
-    Transform golfBallTrans;
     // Update is called once per frame
     void Update()
     {

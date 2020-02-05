@@ -9,7 +9,7 @@ public class HitManager : MonoBehaviour
     Rigidbody golfBallRb;
     Ball ballScript;
     GameObject arrow;
-    GameObject golfBall;
+    GameObject mainGolfBall;
     public float DirAngle { get; protected set; }
     public float HitForce { get; protected set; }
     
@@ -35,14 +35,20 @@ public class HitManager : MonoBehaviour
 
     void FindGolfBall()
     {
-        ballScript = GameObject.FindObjectOfType<Ball>();
-        golfBall = ballScript.gameObject;
+        Ball[] golfBalls = GameObject.FindObjectsOfType<Ball>();
+        foreach (var golfBall in golfBalls)
+        {
+            if (!golfBall.isMimicBall)
+            {
+                ballScript = golfBall;
+                mainGolfBall = golfBall.gameObject;
+            }
+        }
 
-        if (golfBall == null) {
+        if (mainGolfBall == null) {
             Debug.LogError("Couldn't find the golf ball");
         }
-        golfBallRb = golfBall.GetComponent<Rigidbody>();
-        //HitState = HitStateEnum.AIMING;
+        golfBallRb = mainGolfBall.GetComponent<Rigidbody>();
         if (golfBallRb == null) {
             Debug.LogError("Golf ball has no rigidbody");
         }
@@ -113,23 +119,12 @@ public class HitManager : MonoBehaviour
         bool allDead = true;
         foreach (GameObject player in players)
         {
-            Ball ballAScript = player.GetComponent<Ball>();
-            if (ballAScript != null)
-            {   // is player A
-                if (ballAScript.isAlive)
+            Ball ballScript = player.GetComponent<Ball>();
+            if (ballScript != null)
+            {
+                if (ballScript.isAlive)
                 {
                     allDead = false;
-                }
-            }
-            else
-            {   // is player B
-                MimicBall ballBScript = player.GetComponent<MimicBall>();
-                if (ballBScript != null)
-                {
-                    if (ballBScript.isAlive)
-                    {
-                        allDead = false;
-                    }
                 }
             }
         }
