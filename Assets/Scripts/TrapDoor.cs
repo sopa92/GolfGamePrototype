@@ -29,7 +29,6 @@ public class TrapDoor : MonoBehaviour {
     {
         if (needsCoOp)
         {
-            //this.GetComponent<BoxCollider>().enabled = false;
             itsATrap = false;
             bool doorMustOpen = true;
             foreach (TrapButton button in buttons)
