@@ -16,6 +16,20 @@ public class MimicBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(-playerA.transform.position.x, playerA.transform.position.y, -playerA.transform.position.z);
+        if(isAlive)
+            this.transform.position = new Vector3(-playerA.transform.position.x, playerA.transform.position.y, -playerA.transform.position.z);
+        else
+        {
+            var hatch = GameObject.FindObjectOfType<TrapDoor>();
+            if (hatch.doorMustOpen == false)
+            {
+                hatch.itsATrap = true;
+                var buttons = GameObject.FindObjectsOfType<TrapButton>();
+                foreach (var button in buttons)
+                {
+                    Destroy(button.transform.parent.gameObject);
+                }
+            }
+        }
     }
 }

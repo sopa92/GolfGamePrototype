@@ -8,8 +8,7 @@ public class TrapDoor : MonoBehaviour {
     public bool itsATrap;
     TrapButton[] buttons;
     bool needsCoOp;
-    [SerializeField]
-    bool doorMustOpen;
+    public bool doorMustOpen;
 
     // Use this for initialization
     void Start () {
@@ -28,12 +27,15 @@ public class TrapDoor : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (needsCoOp) {
-            this.GetComponent<BoxCollider>().enabled = false;
+        if (needsCoOp)
+        {
+            //this.GetComponent<BoxCollider>().enabled = false;
+            itsATrap = false;
             bool doorMustOpen = true;
             foreach (TrapButton button in buttons)
             {
-                if (!button.isActivated) {
+                if (!button.isActivated)
+                {
                     doorMustOpen = false;
                 }
             }
@@ -47,7 +49,6 @@ public class TrapDoor : MonoBehaviour {
                 rightDoor.useGravity = true;
                 rightDoor.isKinematic = false;
             }
-            
         }
     } 
 

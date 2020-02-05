@@ -45,8 +45,10 @@ public class Ball : MonoBehaviour
 
     public void TransportToTheEnd()
     {
+        this.GetComponent<Rigidbody>().isKinematic = true;
         GameObject endHole = GameObject.FindObjectOfType<Endhole>().gameObject;
-        this.transform.position = new Vector3(endHole.transform.position.x, endHole.transform.position.y + 3, endHole.transform.position.z - 2);
+        this.transform.position = new Vector3(endHole.transform.position.x, endHole.transform.position.y + 3, endHole.transform.position.z + Random.Range(-1.5f, 1.5f));
+        this.GetComponent<Rigidbody>().isKinematic = false;
     }
        
 }
