@@ -60,11 +60,20 @@ public class PowerUp : MonoBehaviour
         {
             GameObject playerA = players[0];
             GameObject playerB = players[1];
-            playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = true;
-            Vector3 tempPos = playerB.transform.position;
-            playerB.transform.position = playerA.transform.position;
-            playerA.transform.position = tempPos;
-            playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = false;
+            Ball scriptPlayerA = playerA.GetComponent<Ball>();
+            Ball scriptPlayerB = playerB.GetComponent<Ball>();
+            if (scriptPlayerA.isAlive && scriptPlayerB.isAlive)
+            {
+                playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = true;
+                Vector3 tempPos = playerB.transform.position;
+                playerB.transform.position = playerA.transform.position;
+                playerA.transform.position = tempPos;
+                playerB.GetComponent<Rigidbody>().isKinematic = playerA.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            else
+            {
+                Debug.Log("Only one player is alive.");
+            }
         }
         else
         {

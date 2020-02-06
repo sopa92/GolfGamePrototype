@@ -21,6 +21,7 @@ public class TrapDoor : MonoBehaviour {
             buttons = GameObject.FindObjectsOfType<TrapButton>();
             if (MultipleButtonsExist()) {
                 needsCoOp = true;
+                itsATrap = false;
             }
         }
     }
@@ -29,8 +30,7 @@ public class TrapDoor : MonoBehaviour {
     {
         if (needsCoOp)
         {
-            itsATrap = false;
-            bool doorMustOpen = true;
+            doorMustOpen = true;
             foreach (TrapButton button in buttons)
             {
                 if (!button.isActivated)
@@ -48,8 +48,9 @@ public class TrapDoor : MonoBehaviour {
                 rightDoor.useGravity = true;
                 rightDoor.isKinematic = false;
             }
+
         }
-    } 
+    }
 
     bool MultipleButtonsExist()
     {
