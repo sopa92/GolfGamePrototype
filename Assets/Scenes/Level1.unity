@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42370674, g: 0.6598789, b: 0.7623391, a: 1}
+  m_IndirectSpecularColor: {r: 0.4238097, g: 0.6598923, b: 0.76239395, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -442,7 +442,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1260175498539026, guid: 1cf8e9176e5822640af1298439e8669b, type: 3}
       propertyPath: m_Name
-      value: TrapDoor (1)
+      value: TrapDoor
       objectReference: {fileID: 0}
     - target: {fileID: 4787749442931032, guid: 1cf8e9176e5822640af1298439e8669b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -471,10 +471,6 @@ PrefabInstance:
     - target: {fileID: 4787749442931032, guid: 1cf8e9176e5822640af1298439e8669b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4787749442931032, guid: 1cf8e9176e5822640af1298439e8669b, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4787749442931032, guid: 1cf8e9176e5822640af1298439e8669b, type: 3}
       propertyPath: m_RootOrder
@@ -1471,8 +1467,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.9999993, y: 1.5892411, z: 0.3532677}
+  m_Center: {x: 0, y: 0.29462045, z: -0.3233662}
 --- !u!23 &692632802
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2006,8 +2002,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.3708487, y: 1.589241, z: 1}
+  m_Center: {x: -0.3145757, y: 0.2946205, z: 0}
 --- !u!23 &910200424
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7843,8 +7839,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.3708487, y: 1.589241, z: 1}
+  m_Center: {x: -0.3145757, y: 0.2946205, z: 0}
 --- !u!23 &1727354078
 MeshRenderer:
   m_ObjectHideFlags: 0

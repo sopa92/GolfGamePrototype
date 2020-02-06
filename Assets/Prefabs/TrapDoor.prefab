@@ -50,8 +50,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.30563974, y: 0.41234398, z: 1}
-  m_Center: {x: 0.04391045, y: 0.293828, z: 0}
+  m_Size: {x: 0.87273705, y: 0.27976203, z: 0.8554296}
+  m_Center: {x: 0.0010600388, y: 0.22753704, z: 0.011774242}
 --- !u!114 &114056323106789414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   leftDoor: {fileID: 54254568766535244}
   rightDoor: {fileID: 54620124919077110}
   itsATrap: 1
+  doorMustOpen: 0
 --- !u!1 &1397215152713996
 GameObject:
   m_ObjectHideFlags: 0

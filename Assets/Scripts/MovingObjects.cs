@@ -30,7 +30,7 @@ public class MovingObjects : MonoBehaviour
         {
             for(int i=0; i<=2; i++)
             {
-                Instantiate(_FireBallPrefab, new Vector3(-5, Random.Range(2.5f, 4.5f), zPositionFireball), Quaternion.identity);
+                Instantiate(_FireBallPrefab, new Vector3(-5, transform.position.y + Random.Range(-0.5f, 1.5f), zPositionFireball), Quaternion.identity);
                 yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForSeconds(1.3f);
@@ -39,8 +39,8 @@ public class MovingObjects : MonoBehaviour
     }
 
     void GenerateGrassObstacles() {
-        Instantiate(_GrassObstaclePrefab, new Vector3(-3, 3.53f, zPositionGrassObstacle), Quaternion.identity);
-        Instantiate(_GrassObstaclePrefab, new Vector3(3, 3.53f, zPositionGrassObstacle -2f), Quaternion.identity);
+        Instantiate(_GrassObstaclePrefab, new Vector3(-3, transform.position.y + 0.53f, zPositionGrassObstacle), Quaternion.identity);
+        Instantiate(_GrassObstaclePrefab, new Vector3(3, transform.position.y + 0.53f, zPositionGrassObstacle - Random.Range(1.5f, 2.5f)), Quaternion.identity);
     }
     
     // Update is called once per frame
