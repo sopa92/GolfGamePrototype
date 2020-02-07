@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
     public bool isMimicBall;
     [SerializeField]
     private Text score;
+    string sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Ball : MonoBehaviour
         score.enabled = false;
         spawnPosition = transform.position;
         isAlive = true;
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -81,7 +83,7 @@ public class Ball : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void TransportToTheEnd()

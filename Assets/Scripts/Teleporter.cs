@@ -42,7 +42,9 @@ public class Teleporter : MonoBehaviour
             Teleporter otherTeleporter = GetTheOtherTeleporter();
             if (otherTeleporter.IsReceiverPort)
             {
+                other.GetComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.transform.position = new Vector3(otherTeleporter.transform.position.x, otherTeleporter.transform.position.y + 1, otherTeleporter.transform.position.z);
+                other.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
     }
