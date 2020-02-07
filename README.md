@@ -1,8 +1,10 @@
 # GolfGamePrototype
 **Video Demo URL**
+
 https://youtu.be/0JVLoSVUcIQ 
 
 **Description**
+
 In this golf game, the player controls the direction of the ball with **A, D** or **left and right arrow**, and the force by pressing **SPACE** once to start charging and once again to apply the force. 
 
 The ***capsules*** shown in the game are different ***power-ups*** that are supposed to be a surprise and that's the reason why they are not labelled somehow. However, the player can learn through the game to distinguish them by their colours:
@@ -26,8 +28,8 @@ The ***fireballs*** can burn the players:
   
 The third level shows the different affect that ***different floors*** have on the golf ball.
 
-Screenshots:
-|[Level1_3D](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level1_3D.JPG)| [Level1 Top View](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level1_top_view.JPG) |
+**Screenshots**:
+|![Level1_3D](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level1_3D.JPG)| ![Level1 Top View](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level1_top_view.JPG) |
 |--|--|
-|[Level2_3D](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level2_3D.JPG)| [Level2 Top View](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level2_top_view.JPG) |
-|[Level3_3D](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level3_3D.JPG)| [Level3 Top View](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level3_top_view.JPG) |
+|![Level2_3D](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level2_3D.JPG)| ![Level2 Top View](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level2_top_view.JPG) |
+|![Level3_3D](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level3_3D.JPG)| ![Level3 Top View](https://github.com/sopa92/GolfGamePrototype/blob/master/Screenshots/Level3_top_view.JPG) |
